@@ -1,8 +1,7 @@
-import { Command } from 'commander';
+import { program } from 'commander';
 
 const genDiff = () => {
   console.log();
-  const program = new Command();
 
   program
     .name('gendiff')
