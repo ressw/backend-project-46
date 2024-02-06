@@ -1,4 +1,5 @@
 import { program } from 'commander';
+import path from 'node:path';
 
 const command = (filename1, filename2, format = '') => {
   console.log(filename1, filename2, format);
@@ -12,6 +13,7 @@ const genDiff = () => {
     .option('-f, --format <type>', 'output format')
     .arguments('<filepath1>, <filepath2>', 'filenames')
     .action((filename1, filename2, keys) => {
+      // const pwd = process.cwd();
       command(filename1, filename2, keys.format);
     })
     .parse();
