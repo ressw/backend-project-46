@@ -1,12 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { program } from 'commander';
-import path from 'path';
-import { readFileSync } from 'fs';
-
-const getData = (filename) => {
-  const getFixturePath = path.resolve(process.cwd(), '__fixtures__', filename);
-  return readFileSync(getFixturePath, 'utf-8');
-};
+import getData from './parser.js';
 
 const command = (filename1, filename2, format = '') => {
   const data1 = getData(filename1);
