@@ -1,8 +1,19 @@
+/* eslint-disable no-unused-vars */
 import { program } from 'commander';
-import path from 'node:path';
+import path from 'path';
+import { readFileSync } from 'fs';
+
+const getData = (filename) => {
+  const getFixturePath = path.resolve(process.cwd(), '__fixtures__', filename);
+  return readFileSync(getFixturePath, 'utf-8');
+};
 
 const command = (filename1, filename2, format = '') => {
-  console.log(filename1, filename2, format);
+  const data1 = getData(filename1);
+  const data2 = getData(filename2);
+  console.log(data1);
+  console.log(data2);
+  console.log(format);
 };
 
 const genDiff = () => {
@@ -13,7 +24,6 @@ const genDiff = () => {
     .option('-f, --format <type>', 'output format')
     .arguments('<filepath1>, <filepath2>', 'filenames')
     .action((filename1, filename2, keys) => {
-      // const pwd = process.cwd();
       command(filename1, filename2, keys.format);
     })
     .parse();
