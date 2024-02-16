@@ -1,8 +1,8 @@
-import path from 'path';
-import { readFileSync } from 'fs';
+/* eslint-disable no-unused-vars */
 
-export default (filename) => {
-  const getFixturePath = path.resolve(process.cwd(), '__fixtures__', filename);
-  const data = readFileSync(getFixturePath, 'utf-8');
+export default (data, format = '') => {
+  if (format === 'json') {
+    return JSON.parse(data);
+  }
   return JSON.parse(data);
 };
