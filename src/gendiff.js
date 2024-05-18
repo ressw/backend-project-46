@@ -22,20 +22,20 @@ const compare = (data1, data2) => {
   console.log(keys);
   console.log('');
 
-  for (const key of keys) {
-    if (keys1.includes(key) && !keys2.includes(key)) {
-      res.push(`- ${key}: ${data1[key]}`);
-    } else if (!keys1.includes(key) && keys2.includes(key)) {
-      res.push(`+ ${key}: ${data2[key]}`);
-    } else {
-      if (data1[key] === data2[key]) {
-        res.push(`${key}: ${data1[key]}`);
-      } else {
-        res.push(`- ${key}: ${data1[key]}`);
-        res.push(`+ ${key}: ${data2[key]}`);
-      }
-    }
-  }
+  // for (const key of keys) {
+  //   if (keys1.includes(key) && !keys2.includes(key)) {
+  //     res.push(`- ${key}: ${data1[key]}`);
+  //   } else if (!keys1.includes(key) && keys2.includes(key)) {
+  //     res.push(`+ ${key}: ${data2[key]}`);
+  //   } else {
+  //     if (data1[key] === data2[key]) {
+  //       res.push(`${key}: ${data1[key]}`);
+  //     } else {
+  //       res.push(`- ${key}: ${data1[key]}`);
+  //       res.push(`+ ${key}: ${data2[key]}`);
+  //     }
+  //   }
+  // }
   console.log(res);
 };
 

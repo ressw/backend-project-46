@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import genDiff from '../src/gendiff.js';
+// eslint-disable-next-line import/no-named-as-default
+import genDiff from '../index.js';
 
 genDiff();
