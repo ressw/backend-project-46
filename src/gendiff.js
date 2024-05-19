@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-restricted-syntax */
 import { program } from 'commander';
@@ -62,7 +63,8 @@ export default () => {
     .arguments('<filepath1>, <filepath2>', 'filenames')
     .action((filename1, filename2, keys) => {
       // console.log(genDiff(filename1, filename2, keys.format));
-      genDiff(filename1, filename2, keys.format);
+      // genDiff(filename1, filename2, keys.format);
+      return 1;
     })
     .parse();
 };
