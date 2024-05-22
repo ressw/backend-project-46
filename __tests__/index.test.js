@@ -13,5 +13,6 @@ const res = `{
 }`;
 
 test('genDiff', () => {
-  expect(genDiff(filepath1, filepath2)).toBe(res);
+  expect(genDiff(filepath1, filepath2)).toEqual(res);
 });
+// console.log(genDiff(filepath1, filepath2));
