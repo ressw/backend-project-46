@@ -1,7 +1,6 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-restricted-syntax */
-import { program } from 'commander';
 import { readFileSync } from 'fs';
 import path from 'path';
 import _ from 'lodash';
@@ -40,7 +39,7 @@ const compare = (data1, data2) => {
   console.log(res);
 };
 
-export const genDiff = (filename1, filename2, format = '') => {
+const genDiff = (filename1, filename2, format = '') => {
   const { str: str1, ext: ext1 } = getData(filename1);
   const { str: str2, ext: ext2 } = getData(filename2);
   const data1 = parse(str1);
@@ -54,17 +53,4 @@ export const genDiff = (filename1, filename2, format = '') => {
   const result = compare(data1, data2);
 };
 
-export default () => {
-  program
-    .name('gendiff')
-    .description('Compares two configuration files and shows a difference.')
-    .option('-V, --version', 'output the version number')
-    .option('-f, --format <type>', 'output format')
-    .arguments('<filepath1>, <filepath2>', 'filenames')
-    .action((filename1, filename2, keys) => {
-      // console.log(genDiff(filename1, filename2, keys.format));
-      // genDiff(filename1, filename2, keys.format);
-      return 1;
-    })
-    .parse();
-};
+export default genDiff;

@@ -1,6 +1,14 @@
 #!/usr/bin/env node
-
-// eslint-disable-next-line import/no-named-as-default
+import { program } from 'commander';
 import genDiff from '../index.js';
 
-genDiff();
+program
+  .name('gendiff')
+  .description('Compares two configuration files and shows a difference.')
+  .option('-V, --version', 'output the version number')
+  .option('-f, --format <type>', 'output format')
+  .arguments('<filepath1>, <filepath2>', 'filenames')
+  .action((filename1, filename2, keys) => {
+    console.log(genDiff(filename1, filename2, keys.format));
+  })
+  .parse();

@@ -1,14 +1,17 @@
 /* eslint-disable no-undef */
-// import genDiff from '../index.js';
+import genDiff from '../index.js';
 
-const path1 = '../__fixtures__/file1.json';
-const path2 = '../__fixtures__/file2.json';
+const filepath1 = '../__fixtures__/file1.json';
+const filepath2 = '../__fixtures__/file2.json';
+const res = `{
+  - follow: false
+    host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+}`;
 
-test('test genDiff', () => {
-  console.log('path1:', path1);
-  console.log('path2:', path2);
-
-  const res = '';
-  console.log('wtf');
-  expect(res).toBe('');
+test('genDiff', () => {
+  expect(genDiff(filepath1, filepath2)).toBe(res);
 });
