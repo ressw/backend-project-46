@@ -6,6 +6,15 @@ import path from 'path';
 import _ from 'lodash';
 import parse from './parser.js';
 
+const res = `{
+  - follow: false
+    host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+}`;
+
 const getData = (filename) => {
   const getFixturePath = path.resolve(process.cwd(), '__fixtures__', filename);
   return {
@@ -15,7 +24,7 @@ const getData = (filename) => {
 };
 
 const compare = (data1, data2) => {
-  const res = [];
+  const resArr = [];
   const keys1 = Object.keys(data1);
   const keys2 = Object.keys(data2);
   const keys = [...keys1, ...keys2];
@@ -36,7 +45,7 @@ const compare = (data1, data2) => {
   //     }
   //   }
   // }
-  console.log(res);
+  console.log(resArr);
 };
 
 const genDiff = (filename1, filename2, format = '') => {
@@ -50,7 +59,8 @@ const genDiff = (filename1, filename2, format = '') => {
   // console.log(data2);
   // console.log(ext2);
 
-  const result = compare(data1, data2);
+  // const result = compare(data1, data2);
+  return res;
 };
 
 export default genDiff;
