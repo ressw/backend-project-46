@@ -1,6 +1,5 @@
 /* eslint-disable arrow-body-style */
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-restricted-syntax */
 import { readFileSync } from 'fs';
 import path from 'path';
 import _ from 'lodash';
