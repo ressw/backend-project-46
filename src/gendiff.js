@@ -5,6 +5,13 @@ import path from 'path';
 import _ from 'lodash';
 import parse from './parser.js';
 
+const getPath = (filename) => path.resolve(process.cwd(), '__fixtures__', filename);
+const getExt = (filename) => path.extname(filename).slice(1);
+const getData = (filename) => parse(
+  readFileSync(getPath(filename), 'utf-8'),
+  getExt(filename),
+);
+
 const res = `{
   - follow: false
     host: hexlet.io
@@ -13,14 +20,6 @@ const res = `{
   + timeout: 20
   + verbose: true
 }`;
-
-const getData = (filename) => {
-  const getFixturePath = path.resolve(process.cwd(), '__fixtures__', filename);
-  return {
-    str: readFileSync(getFixturePath, 'utf-8'),
-    ext: path.extname(filename),
-  };
-};
 
 const compare = (data1, data2) => {
   const resArr = [];
@@ -48,10 +47,8 @@ const compare = (data1, data2) => {
 };
 
 const genDiff = (filename1, filename2, format = '') => {
-  const { str: str1, ext: ext1 } = getData(filename1);
-  const { str: str2, ext: ext2 } = getData(filename2);
-  const data1 = parse(str1);
-  const data2 = parse(str2);
+  const data1 = getData(filename1);
+  const data2 = getData(filename2);
 
   // console.log(data1);
   // console.log(ext1);
