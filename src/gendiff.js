@@ -12,6 +12,9 @@ const getData = (filename) => parse(
   getExt(filename),
 );
 
+const path1 = '../__fixtures__/file1.json';
+const path2 = '../__fixtures__/file2.json';
+
 const res = `{
   - follow: false
     host: hexlet.io
@@ -46,14 +49,12 @@ const compare = (data1, data2) => {
   console.log(resArr);
 };
 
-const genDiff = (filename1, filename2, format = '') => {
+const genDiff = (filename1 = path1, filename2 = path2, format = '') => {
   const data1 = getData(filename1);
   const data2 = getData(filename2);
 
-  // console.log(data1);
-  // console.log(ext1);
-  // console.log(data2);
-  // console.log(ext2);
+  console.log(filename1);
+  console.log(filename2);
 
   // const result = compare(data1, data2);
   return res;
