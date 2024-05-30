@@ -5,6 +5,7 @@ import path from 'path';
 import _ from 'lodash';
 import parse from './parser.js';
 import buildTree from './treeBuilder.js';
+import format from './format.js';
 
 const getPath = (filename) => path.resolve(
   process.cwd(),
@@ -23,7 +24,7 @@ const genDiff = (filename1, filename2, formatStyle = '') => {
   const tree = buildTree(data1, data2);
   // console.log(tree);
 
-  // const diff = format(tree, formatStyle);
+  const diff = format(tree, formatStyle);
   // console.log(filename2);
 
   return tree;
