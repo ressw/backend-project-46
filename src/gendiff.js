@@ -27,7 +27,7 @@ const genDiff = (filename1, filename2, formatStyle = '') => {
   const diff = format(tree, formatStyle);
   // console.log(filename2);
 
-  return tree;
+  return diff;
 };
 
 export default genDiff;
