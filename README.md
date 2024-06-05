@@ -36,13 +36,14 @@ gendiff filepath1.json filepath2.json
 }
 ```
 
+
 ## Установка
 Чтобы воспользоваться утилитой, нужно выполнить в консоли несколько команд. Сначала 
 клонировать проект себе на локальный компьютер командой
 
 ```
 
-git clone https://github.com/ressw/backend-project-44.git
+git clone https://github.com/ressw/backend-project-46.git
 
 ```
 
@@ -52,7 +53,7 @@ git clone https://github.com/ressw/backend-project-44.git
 
 npm install
 
-npm link
+npm link // или sudo npm link
 
 ```
 
