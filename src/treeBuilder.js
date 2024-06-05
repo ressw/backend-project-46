@@ -32,8 +32,7 @@ const buildTree = (data1, data2) => {
     return obj;
   });
 
-  res.sort((a, b) => (a.key > b.key ? 1 : -1));
-  return res;
+  return _.sortBy(res, (i) => i.key);
 };
 
 export default buildTree;
