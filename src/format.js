@@ -12,21 +12,21 @@ const res = `{
 }`;
 
 const formatStr = (obj) => {
+  const baseStr1 = `${obj.key}: ${obj.value}`;
+
   if (obj.type === 'deleted') {
-    return `  - ${obj.key}: ${obj.value}`;
+    return `  - ${baseStr1}`;
   }
 
   if (obj.type === 'added') {
-    return `  + ${obj.key}: ${obj.value}`;
+    return `  + ${baseStr1}`;
   }
 
   if (obj.type === 'changed') {
-    let str = `  - ${obj.key}: ${obj.value}\n`;
-    str += `  + ${obj.key}: ${obj.value2}`;
-    return str;
+    return `  - ${baseStr1}\n  + ${obj.key}: ${obj.value2}`;
   }
 
-  return `    ${obj.key}: ${obj.value}`;
+  return `    ${baseStr1}`;
 };
 
 const format = (tree, formatStyle = '') => {
