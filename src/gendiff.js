@@ -22,10 +22,7 @@ const genDiff = (filename1, filename2, formatStyle = '') => {
   const data1 = getData(filename1);
   const data2 = getData(filename2);
   const tree = buildTree(data1, data2);
-  // console.log(tree);
-
   const diff = format(tree, formatStyle);
-  console.log(diff);
 
   return diff;
 };
