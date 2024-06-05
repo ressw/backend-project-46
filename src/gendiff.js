@@ -25,7 +25,7 @@ const genDiff = (filename1, filename2, formatStyle = '') => {
   // console.log(tree);
 
   const diff = format(tree, formatStyle);
-  // console.log(filename2);
+  console.log(diff);
 
   return diff;
 };
