@@ -11,4 +11,4 @@ program
   .action((filename1, filename2, keys) => {
     console.log(genDiff(filename1, filename2, keys.format));
   })
-  .parse(process.argv);
+  .parse();
