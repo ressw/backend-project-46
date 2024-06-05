@@ -20,15 +20,19 @@ const buildTree = (data1, data2) => {
     }
 
     if (data1[key] !== data2[key]) {
+      obj.value = data1[key];
       obj.value2 = data2[key];
       obj.type = 'changed';
       return obj;
     }
 
     obj.type = 'unchanged';
+    obj.value = data1[key];
+
     return obj;
   });
 
+  res.sort((a, b) => (a.key > b.key ? 1 : -1));
   return res;
 };
 
