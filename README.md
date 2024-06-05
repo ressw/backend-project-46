@@ -66,7 +66,9 @@ sudo npm link
 ```
 
 
-## Примеры сравнения плоских файлов
+## Пример вызова справки и сравнения плоских файлов
+
+[![asciicast](https://asciinema.org/a/ViskD0CyXp0MdR8mR64C7EHHY.svg)](https://asciinema.org/a/ViskD0CyXp0MdR8mR64C7EHHY)
 
 
 
