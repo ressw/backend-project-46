@@ -53,7 +53,7 @@ git clone https://github.com/ressw/backend-project-46.git
 
 npm install
 
-npm link // или sudo npm link
+npm link
 
 ```
 
@@ -64,3 +64,10 @@ npm link // или sudo npm link
 sudo npm link
 
 ```
+
+
+## Примеры сравнения плоских файлов
+
+
+
+
