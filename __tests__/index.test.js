@@ -23,8 +23,8 @@ test('genDiff test for flat JSON files', () => {
 });
 
 test('genDiff test for flat YML files', () => {
-  const filepath1 = getFixturePath('file1.json');
-  const filepath2 = getFixturePath('file2.json');
+  const filepath1 = getFixturePath('file1.yml');
+  const filepath2 = getFixturePath('file2.yml');
   const res = `{
   - follow: false
     host: hexlet.io
