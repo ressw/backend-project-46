@@ -1,9 +1,17 @@
 /* eslint-disable no-undef */
+import path from 'path';
+import { fileURLToPath } from 'url';
 import genDiff from '../index.js';
 
-const filepath1 = '../__fixtures__/file1.json';
-const filepath2 = '../__fixtures__/file2.json';
-const res = `{
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const getFixturePath = (filename) => path
+  .join(__dirname, '..', '__fixtures__', filename);
+
+test('genDiff test for flat json files', () => {
+  const filepath1 = getFixturePath('file1.json');
+  const filepath2 = getFixturePath('file2.json');
+  const res = `{
   - follow: false
     host: hexlet.io
   - proxy: 123.234.53.22
@@ -11,8 +19,5 @@ const res = `{
   + timeout: 20
   + verbose: true
 }`;
-
-test('genDiff', () => {
   expect(genDiff(filepath1, filepath2)).toEqual(res);
 });
-// console.log(genDiff(filepath1, filepath2));
