@@ -68,9 +68,14 @@ sudo npm link
 ```
 
 
-## Пример вызова справки и сравнения плоских файлов
+## Пример вызова справки и сравнения плоских JSON файлов
 
 [![asciicast](https://asciinema.org/a/ViskD0CyXp0MdR8mR64C7EHHY.svg)](https://asciinema.org/a/ViskD0CyXp0MdR8mR64C7EHHY)
+
+## Пример сравнения плоских YML файлов
+
+[![asciicast](https://asciinema.org/a/JAI5Uj5UMgQMzOl1VEPgR3BkE.svg)](https://asciinema.org/a/JAI5Uj5UMgQMzOl1VEPgR3BkE)
+
 
 
 
