@@ -29,4 +29,4 @@ const genDiff = (filename1, filename2, formatStyle = '') => {
 
 export default genDiff;
 
-// gendiff '../__fixtures__/file1.json' '../__fixtures__/file2.json'
+// gendiff file1.json file2.json
