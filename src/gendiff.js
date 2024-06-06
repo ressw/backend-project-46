@@ -3,7 +3,7 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import _ from 'lodash';
-import parse from './parser.js';
+import parse from './parsers.js';
 import buildTree from './treeBuilder.js';
 import format from './format.js';
 
