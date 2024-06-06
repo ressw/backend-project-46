@@ -37,10 +37,6 @@ const format = (tree, formatStyle = '') => {
     }
   }
   const str = `{\n${result.join('\n')}\n}`;
-
-  console.log(import.meta);
-
-
   return str;
 };
 
