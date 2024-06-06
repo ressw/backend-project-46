@@ -74,7 +74,7 @@ sudo npm link
 
 ## Пример сравнения плоских YML файлов
 
-[![asciicast](https://asciinema.org/a/JAI5Uj5UMgQMzOl1VEPgR3BkE.svg)](https://asciinema.org/a/JAI5Uj5UMgQMzOl1VEPgR3BkE)
+[![asciicast](https://asciinema.org/a/mEZCq29uPDYDIFYzVestKOebu.svg)](https://asciinema.org/a/mEZCq29uPDYDIFYzVestKOebu)
 
 
 
