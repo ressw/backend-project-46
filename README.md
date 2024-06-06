@@ -1,6 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/ressw/backend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ressw/backend-project-46/actions) 
-![GitHub Actions](https://github.com/ressw/backend-project-46/actions/workflows/ci.yml/badge.svg) 
+![GitHub Actions](https://github.com/ressw/backend-project-46/actions/workflows/nodejs-ci.yml/badge.svg) 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7f757ccf59682555233b/test_coverage)](https://codeclimate.com/github/ressw/backend-project-46/test_coverage)
 
 ## Описание
