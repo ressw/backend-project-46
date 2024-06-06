@@ -18,7 +18,7 @@ const getData = (filename) => parse(
   getExt(filename),
 );
 
-const genDiff = (filename1, filename2, formatStyle = '') => {
+const genDiff = (filename1, filename2, formatStyle = 'stylish') => {
   const data1 = getData(filename1);
   const data2 = getData(filename2);
   const tree = buildTree(data1, data2);
