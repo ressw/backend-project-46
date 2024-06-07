@@ -3,20 +3,28 @@ import _ from 'lodash';
 const buildTree = (data1, data2) => {
   let obj = {};
   const keys = _.union(Object.keys(data1), Object.keys(data2));
-  const isNested = (o, label) => (_.isObject(o) ? 'nested' : label);
   const res = keys.map((key) => {
     obj = {};
     obj.key = key;
 
+    if (_.isObject(data1[key]) && _.isObject(data2[key])) {
+      obj.type = 'nested';
+
+      console.log(`key: ${key} - nested`);
+
+      obj.value = buildTree(data1[key], data2[key]);
+      return obj;
+    }
+
     if (!Object.hasOwn(data2, key)) {
       obj.value = data1[key];
-      obj.type = isNested(data1[key], 'deleted');
+      obj.type = 'deleted';
       return obj;
     }
 
     if (!Object.hasOwn(data1, key)) {
       obj.value = data2[key];
-      obj.type = isNested(data1[key], 'added');
+      obj.type = 'added';
       return obj;
     }
 
@@ -24,12 +32,6 @@ const buildTree = (data1, data2) => {
       obj.value = data1[key];
       obj.value2 = data2[key];
       obj.type = 'changed';
-      return obj;
-    }
-
-    if (_.isObject(data1[key]) && _.isObject(data2[key])) {
-      obj.type = 'nested';
-      obj.value = buildTree(data1[key], data2[key]);
       return obj;
     }
 
