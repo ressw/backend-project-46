@@ -9,6 +9,7 @@ program
   .option('-f, --format <type>', 'output format', 'stylish')
   .arguments('<filepath1>, <filepath2>', 'filenames', '')
   .action((filename1, filename2, keys) => {
-    console.log(genDiff(filename1, filename2, keys.format));
+    // console.log(genDiff(filename1, filename2, keys.format));
+    genDiff(filename1, filename2, keys.format);
   })
   .parse();
