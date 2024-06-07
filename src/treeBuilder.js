@@ -9,9 +9,6 @@ const buildTree = (data1, data2) => {
 
     if (_.isObject(data1[key]) && _.isObject(data2[key])) {
       obj.type = 'nested';
-
-      console.log(`key: ${key} - nested`);
-
       obj.value = buildTree(data1[key], data2[key]);
       return obj;
     }
@@ -41,7 +38,6 @@ const buildTree = (data1, data2) => {
     return obj;
   });
 
-  // console.log(JSON.stringify(res, null, 2));
   return _.sortBy(res, (i) => i.key);
 };
 
