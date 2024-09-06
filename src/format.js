@@ -2,28 +2,66 @@
 /* eslint-disable no-unused-vars */
 import _ from 'lodash';
 
-const formatStr = (obj) => {
-  const baseStr1 = `${obj.key}: ${obj.value}`;
+const l = console.log;
+const idn = ' ';
+l();
 
-  if (obj.type === 'deleted') return `  - ${baseStr1}`;
-  if (obj.type === 'added') return `  + ${baseStr1}`;
+const objLog = (key, val) => {
+  const s = typeof val === 'object'
+    ? objLog(key, val)
+    : ` ${key}: ${val}\n`;
+};
 
-  if (obj.type === 'changed') {
-    return `  - ${baseStr1}\n  + ${obj.key}: ${obj.value2}`;
+const stylish = (tree, deep) => {
+  if (typeof tree !== 'object') return `${tree}\n`;
+
+  if (tree.type === 'nested') {
+    const res = stylish(tree.value, deep + 1);
+    const str = `${idn.repeat(deep)}${tree.key}: {\n`
+    + `${res}${idn.repeat(deep)}}\n`;
+    // l('tree.key:', tree.key);
+    return str;
   }
 
-  return `    ${baseStr1}`;
+  // if (tree.type === 'deleted') {
+  //   let res = stylish(tree.value, deep + 1);
+  //   // res = JSON.stringify(res);
+  //   return `${idn.repeat(deep)}${tree.key}: ${res}`;
+  // }
+
+  if (tree.type === 'added') {
+    const res = stylish(tree.value, deep);
+    return `${idn.repeat(deep)}${tree.key}: ${res}`;
+  }
+
+  // if (tree.type === 'changed') {
+  //   let res = stylish(tree.value, deep + 1);
+  //   // res = JSON.stringify(res);
+  //   return `${idn.repeat(deep)}${tree.key}: ${res}`;
+  // }
+
+  // if (tree.type === 'unchanged') {
+  //   let res = stylish(tree.value, deep + 1);
+  //   // res = JSON.stringify(res);
+  //   return `${idn.repeat(deep)}${tree.key}: ${res}`;
+  // }
+
+  if (Array.isArray(tree)) {
+    return tree.flatMap((i) => stylish(i, deep + 1)).join('');
+  }
+
+  // return `${idn.repeat(deep)}${JSON.stringify(tree)}`;
+  // return `${idn.repeat(deep)}${tree}`;
+  return `${idn.repeat(deep)}${tree.key}: ${tree.value}\n`;
 };
 
 const format = (tree, formatStyle = 'stylish') => {
-  const result = [];
-  for (const item of tree) {
-    if (_.isObject(item)) {
-      result.push(formatStr(item));
-    }
-  }
-  const str = `{\n${result.join('\n')}\n}`;
-  return str;
+  const deep = 0;
+  const formatRes = stylish(tree, deep);
+  l();
+  l(formatRes);
+  l();
+  return formatRes;
 };
 
 export default format;
