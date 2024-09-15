@@ -19,40 +19,39 @@ const stylish = (tree, deep) => {
     const res = stylish(tree.value, deep + 1);
     const str = `${idn.repeat(deep)}${tree.key}: {\n`
     + `${res}${idn.repeat(deep)}}\n`;
-    // l('tree.key:', tree.key);
     return str;
   }
 
-  // if (tree.type === 'deleted') {
-  //   let res = stylish(tree.value, deep + 1);
-  //   // res = JSON.stringify(res);
-  //   return `${idn.repeat(deep)}${tree.key}: ${res}`;
-  // }
+  if (tree.type === 'deleted') {
+    const res = stylish(tree.value, deep);
+    return `${idn.repeat(deep)}- ${tree.key}: ${res}`;
+  }
 
   if (tree.type === 'added') {
     const res = stylish(tree.value, deep);
-    return `${idn.repeat(deep)}${tree.key}: ${res}`;
+    return `${idn.repeat(deep)}+ ${tree.key}: ${res}`;
   }
 
-  // if (tree.type === 'changed') {
-  //   let res = stylish(tree.value, deep + 1);
-  //   // res = JSON.stringify(res);
-  //   return `${idn.repeat(deep)}${tree.key}: ${res}`;
-  // }
+  if (tree.type === 'changed') {
+    const res = stylish(tree.value, deep + 1);
+    return `${idn.repeat(deep)}  ${tree.key}: ${res}`;
+  }
 
-  // if (tree.type === 'unchanged') {
-  //   let res = stylish(tree.value, deep + 1);
-  //   // res = JSON.stringify(res);
-  //   return `${idn.repeat(deep)}${tree.key}: ${res}`;
-  // }
+  if (tree.type === 'unchanged') {
+    const res = stylish(tree.value, deep + 1);
+    return `${idn.repeat(deep)}  ${tree.key}: ${res}`;
+  }
 
   if (Array.isArray(tree)) {
     return tree.flatMap((i) => stylish(i, deep + 1)).join('');
   }
 
-  // return `${idn.repeat(deep)}${JSON.stringify(tree)}`;
-  // return `${idn.repeat(deep)}${tree}`;
-  return `${idn.repeat(deep)}${tree.key}: ${tree.value}\n`;
+  if (!tree.key) {
+    return Object.keys(tree).map((i) => stylish(i, deep + 1)).join('ere');
+  }
+
+  const res = stylish(tree.value, deep);
+  return `${idn.repeat(deep)}${tree.key}==: ${res}`;
 };
 
 const format = (tree, formatStyle = 'stylish') => {
