@@ -5,7 +5,7 @@ import path from 'path';
 import _ from 'lodash';
 import parse from './parsers.js';
 import buildTree from './treeBuilder.js';
-import format from './format.js';
+import format from './format/index.js';
 
 const getPath = (filename) => path.resolve(
   process.cwd(),
