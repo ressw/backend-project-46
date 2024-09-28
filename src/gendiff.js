@@ -29,4 +29,6 @@ const genDiff = (filename1, filename2, formatStyle = 'stylish') => {
 
 export default genDiff;
 
+// npm install gendiff
+// npm link
 // gendiff file1.json file2.json
