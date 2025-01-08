@@ -3,6 +3,7 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import _ from 'lodash';
+import shortTree from '../__fixtures__/shortTreeЕxampleObj.js'; // убрать
 import parse from './parsers.js';
 import buildTree from './treeBuilder.js';
 import format from './format/index.js';
@@ -21,9 +22,12 @@ const getData = (filename) => parse(
 const genDiff = (filename1, filename2, formatStyle = 'stylish') => {
   const data1 = getData(filename1);
   const data2 = getData(filename2);
-  const tree = buildTree(data1, data2);
+  // const tree = buildTree(data1, data2);
+  const tree = shortTree;
   const diff = format(tree, formatStyle);
-
+  console.log('diff:');
+  console.log();
+  console.log(diff);
   return diff;
 };
 

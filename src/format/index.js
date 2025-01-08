@@ -1,4 +1,5 @@
 import stylishFormat from './stylish.js';
+// import stylishFormat from './stylish2.js';
 import plainFormat from './plain.js';
 
 const formatStyle = {
@@ -8,7 +9,9 @@ const formatStyle = {
 
 export default (data, formatName) => {
   if (formatStyle[formatName]) {
-    return formatStyle[formatName](data);
+    const res = formatStyle[formatName](data);
+    // console.log('index =', res);
+    return res;
   }
   throw new Error('Неизвестный формат');
 };
